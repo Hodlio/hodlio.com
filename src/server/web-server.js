@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const httpProxy = require('http-proxy');
 const apiProxy = httpProxy.createProxyServer();
+const path = require('path');
 
 app.all("/api/*", function(req, res) {
     apiProxy.web(req, res, { target: 'http://localhost:8084' });
