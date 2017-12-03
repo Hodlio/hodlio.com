@@ -5,7 +5,7 @@ const apiProxy = httpProxy.createProxyServer();
 
 app.all("/api/*", function(req, res) {
     apiProxy.web(req, res, { target: 'http://localhost:8084' });
-});npm s
+});
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + 'build/index.html'));
