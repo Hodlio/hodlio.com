@@ -1,0 +1,16 @@
+.button {
+    background: #fff;
+    border-radius: 6px;
+    margin: 0;
+    padding: 15px 20px;
+    border: 0;
+    color: #EA4673;
+    font-weight: 700;
+    font-size: 2rem;
+    cursor: pointer;
+    outline: 0;
+}
+
+.button:active {
+    transform: translate3d(2px, 2px, 0);
+}

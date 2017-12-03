@@ -1,0 +1,50 @@
+.header {
+    font-weight: 100;
+    color: #565B77;
+    position: relative;
+    display: inline-block;
+    margin: 20px 0;
+}
+
+.header.header--white {
+    color: #fff;
+}
+
+.header:after {
+    content: '';
+    height: 2px;
+    width: 50%;
+    position: absolute;
+    background: #E73C77;
+    left: 0;
+    bottom: -10px;
+}
+
+.header.header--white:after {
+    background: #fff;
+}
+
+h1.header {
+    font-size: 3rem;
+    margin: 20px 0;
+}
+
+h2.header {
+    font-size: 2.5rem;
+}
+
+h3.header {
+    font-size: 2rem;
+}
+
+h4.header {
+    font-size: 1.8rem;
+}
+
+h5.header {
+    font-size: 1.6rem;
+}
+
+h6.header {
+    font-size: 1.4rem;
+}

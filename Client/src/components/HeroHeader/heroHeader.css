@@ -1,0 +1,26 @@
+.heroHeader {
+    background: linear-gradient(231deg, #E93876, #F76E64);
+    padding: 25px 0;
+}
+
+.heroHeader__logo {
+    width: 10%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.heroHeader__text {
+    text-align: center;
+    color: #fff;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 35px auto;
+    max-width: 500px;
+    line-height: 1.5;
+}
+
+.heroHeader__cta {
+    text-align: center;
+}

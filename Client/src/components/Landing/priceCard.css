@@ -1,0 +1,11 @@
+.priceCard {
+    padding: 0 20px 20px 20px;
+    border-radius: 6px;
+    max-width: 350px;
+    background: linear-gradient(53deg, #F76E64, #F7931A);
+    background: url(../../images/logos/bitcoin-logo.svg) no-repeat 120% -50%/45%, linear-gradient(53deg, #F76E64, #F7931A);
+}
+
+.priceCard__symbol {
+    font-size: 50%;
+}
