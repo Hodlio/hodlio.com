@@ -6,16 +6,25 @@
     "classnames": "^2.2.5",
     "express": "^4.16.2",
     "gdax": "^0.4.2",
+    "http-proxy": "^1.16.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.0.17"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "npm run start-dev-server & npm run start-api & npm run start-web-server",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "start-server": "node ./src/server/server.js",
-    "start-prod": "npm run build && npm run start-server"
+    "start-dev-server": "react-scripts start",
+    "start-api": "node ./src/server/api.js",
+    "start-web-server": "node ./src/server/web-server.js",
+    "start-prod": "npm run build && npm run start-web-server"
+  },
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:8084/",
+      "secure": false
+    }
   }
 }
