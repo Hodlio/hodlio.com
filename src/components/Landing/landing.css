@@ -6,3 +6,10 @@
     background: #F5F5F5;
     padding: 35px 20px;
 }
+
+.landing__intro {
+    padding: 20px;
+    background: #fff;
+    margin: 0 0 20px 0;
+    font-size: 1.6rem;
+}

@@ -8,3 +8,14 @@ body {
   font-family: 'Nunito Sans', sans-serif;
   background: #E93876;
 }
+
+body.meatspin {
+  animation: meat-spin infinite 1s linear;
+}
+
+
+@keyframes meat-spin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(2); }
+  100% { transform: rotate(360deg) scale(1); }
+}
