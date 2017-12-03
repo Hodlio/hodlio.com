@@ -1,3 +1,24 @@
+# Start Project
+
+A development server can be started by:
+
+```
+git clone git@github.com:Hodlio/hodlio.com.git
+cd hodlio.com
+npm start
+``` 
+
+The server and API can be started via
+
+```
+npm run start-prod
+```
+
+This will build the front-end, start the API and serve everything via express at `localhost:8083`.
+
+---
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
