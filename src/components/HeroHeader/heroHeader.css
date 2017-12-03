@@ -5,6 +5,7 @@
 
 .heroHeader__logo {
     width: 10%;
+    min-width: 120px;
     height: auto;
     display: block;
     margin: 0 auto;
