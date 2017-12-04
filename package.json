@@ -10,7 +10,8 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.0.17",
-    "socket.io": "^2.0.4"
+    "socket.io": "^2.0.4",
+    "socket.io-client": "^2.0.4"
   },
   "scripts": {
     "start": "npm run start-dev-server",
@@ -22,10 +23,5 @@
     "start-web-server": "node ./src/server/web-server.js",
     "start-prod": "npm run build && npm run start-web-server"
   },
-  "proxy": {
-    "/api": {
-      "target": "http://localhost:8084/",
-      "secure": false
-    }
-  }
+  "proxy": "http://localhost:8083"
 }
