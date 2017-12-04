@@ -1,6 +1,8 @@
 .heroHeader {
-    background: linear-gradient(231deg, #E93876, #F76E64);
-    padding: 25px 0;
+    background-image: linear-gradient(231deg, #E93876, #F76E64);
+    min-height: 0px;
+    position: relative;
+    padding: 70px 0 0 0;
 }
 
 .heroHeader__logo {
@@ -11,16 +13,25 @@
 }
 
 .heroHeader__text {
+    max-width: 1200px;
+    margin: 60px auto 38px;
+    padding: 0px 14px;
+    font-weight: 800;
     text-align: center;
-    color: #fff;
-    font-size: 3rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin: 35px auto;
-    max-width: 500px;
-    line-height: 1.5;
+    line-height: 38px;
+    color: white;
+    font-size: 32px;
 }
 
 .heroHeader__cta {
     text-align: center;
+}
+
+.heroHeader__image {
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    position: relative;
+    transform:scale(1.1);
+    
 }

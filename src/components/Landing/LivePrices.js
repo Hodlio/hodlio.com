@@ -5,13 +5,14 @@ import PriceCard from './PriceCard';
 
 const LivePrices = () => (
     <div className="livePrices">
-        <Header>Live Prices</Header>
+        <Header centered>Live Prices</Header>
 
         <div className="livePrices__cards">
             <PriceCard
                 title="Bitcoin"
                 symbol="(BTC)"
             />
+           
         </div>
     </div>
 );

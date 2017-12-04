@@ -1,5 +1,6 @@
 .priceCard {
-    padding: 0 20px 20px 20px;
+    margin: 0 auto;
+    padding: 0 20px 7px 20px;
     border-radius: 6px;
     max-width: 350px;
     background: linear-gradient(53deg, #F76E64, #F7931A);
@@ -7,5 +8,6 @@
 }
 
 .priceCard__symbol {
-    font-size: 50%;
+    font-size: 1.3rem;
+    font-weight: 200;
 }

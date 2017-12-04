@@ -1,8 +1,11 @@
 .livePrices {
     padding: 20px;
     background: #fff;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .livePrices__cards {
     padding: 20px 0;
+    
 }

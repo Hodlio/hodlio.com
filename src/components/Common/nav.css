@@ -1,0 +1,30 @@
+.navbar {
+    overflow:visible;
+    width: 100%;
+    z-index: 1000;
+    position: absolute;
+    background-color: transparent;
+    }
+
+.navbar__inner {
+    background: transparent;
+    margin: 0 auto;
+    color: white;
+    border: 0;
+    height: 42px;
+    max-width: 1228px;
+    padding: 14px 20px;
+}
+
+.navbar__container {
+    width: 100%;
+    padding: 0 0px;
+    margin: 0px;
+    
+}
+
+.navbar__logo {
+    position: relative;
+    top: 4px;
+    
+}
