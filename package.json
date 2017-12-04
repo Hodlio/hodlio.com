@@ -9,10 +9,11 @@
     "http-proxy": "^1.16.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+    "socket.io": "^2.0.4"
   },
   "scripts": {
-    "start": "npm run start-dev-server & npm run start-api & npm run start-web-server",
+    "start": "npm run start-dev-server",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",

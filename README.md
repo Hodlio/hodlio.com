@@ -8,13 +8,13 @@ cd hodlio.com
 npm start
 ``` 
 
-The server and API can be started via
+The web-server and API can be started via
 
 ```
-npm run start-prod
+npm run start-api & npm start-web-server
 ```
 
-This will build the front-end, start the API and serve everything via express at `localhost:8083`.
+Then the API will be available at http://localhost:8083/api
 
 ---
 
