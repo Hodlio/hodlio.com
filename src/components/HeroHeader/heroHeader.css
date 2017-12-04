@@ -29,8 +29,10 @@
 
 .heroHeader__image {
     width: 100%;
+    min-width: 1920px;
+    overflow: hidden;
     bottom: 0px;
-    left: 0px;
+    left: 60px;
     position: relative;
     transform:scale(1.1);
     
