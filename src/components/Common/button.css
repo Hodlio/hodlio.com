@@ -10,7 +10,9 @@
     text-align: center;
     font-size: 20px;
     font-weight: 700;
-    
+    border: none;
+    outline: none;
+    /* fuck this fucking button why do you have border and outline you fuck */
     
 }
 
