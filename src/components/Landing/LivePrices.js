@@ -31,7 +31,7 @@ class LivePrices extends React.Component {
     render() {
         return (
             <div className="livePrices">
-                <Header>Live Prices</Header>
+                <Header centered>Live Prices</Header>
 
                 <div className="livePrices__cards">
                     <div className="livePrices__card">

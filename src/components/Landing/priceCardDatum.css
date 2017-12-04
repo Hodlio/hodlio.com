@@ -1,22 +1,23 @@
 .priceCardDatum {
     color: #fff;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0 0 4px 0;
     overflow: hidden;
     position: relative;
-    margin: 15px 0;
+    margin: 18px 0;
 }
 
 .priceCardDatum__label {
-    font-size: 1.5rem;
-    font-weight: 100;
+    font-size: 1.6rem;
+    font-weight: 300;
     float: left;
     vertical-align: bottom;
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
 }
 
 .priceCardDatum__value {
-    font-size: 2rem;
+    font-size: 2.4rem;
     font-weight: 300;
     float: right;
 }

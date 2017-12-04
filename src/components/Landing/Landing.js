@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../Common/Header';
+import Nav from '../Common/Nav';
 import HeroHeader from '../HeroHeader/HeroHeader';
 import LivePrices from '../Landing/LivePrices';
 import './landing.css';
@@ -13,10 +14,10 @@ class Landing extends React.Component {
     render() {
         return (
             <div className="landing">
-
+                <Nav />
                 <HeroHeader
-                    text="The cryptocurrency portfolio platform that doesn't suck."
-                    ctaText="Create your portfolio"
+                    text="The blockchain portfolio platform tagline."
+                    ctaText="Start your portfolio"
                     onClick={this.handleClick}
                 />
 
