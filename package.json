@@ -5,8 +5,9 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "express": "^4.16.2",
-    "gdax": "^0.4.2",
+    "gdax": "github:coinbase/gdax-node",
     "http-proxy": "^1.16.2",
+    "lodash": "^4.17.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.0.17",

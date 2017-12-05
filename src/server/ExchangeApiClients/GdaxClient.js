@@ -77,6 +77,7 @@ class GdaxClient {
         websocket.on('message', data => {
             if(data.type === 'match') {
                 this.updatePairs(data);
+                this.onUpdateFunc && this.onUpdateFunc(this.pairs);
             }
         });
         websocket.on('error', err => { console.log('ERROR: ', err); });
@@ -89,6 +90,9 @@ class GdaxClient {
         console.log(data.product_id, ' is now: ', data.price, ' at: ', data.time, ' 24hr change: ', (((data.price - this.pairs[data.product_id].dayOpenPrice) / this.pairs[data.product_id].dayOpenPrice) * 100).toFixed(2) , "%");
     }
 
+    onUpdate(func) {
+        this.onUpdateFunc = func;
+    }
 }
 
 module.exports = GdaxClient;

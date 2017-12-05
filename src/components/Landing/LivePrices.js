@@ -34,11 +34,21 @@ class LivePrices extends React.Component {
                 <Header>Live Prices</Header>
 
                 <div className="livePrices__cards">
-                    <PriceCard
-                        title="Bitcoin"
-                        symbol="(BTC)"
-                        price={this.state.price}
-                    />
+                    <div className="livePrices__card">
+                        <PriceCard
+                            title="Bitcoin"
+                            symbol="BTC"
+                            price={this.state.price}
+                        />
+                    </div>
+
+                    <div className="livePrices__card">
+                        <PriceCard
+                            title="Ethereum"
+                            symbol="ETH"
+                            price={this.state.price}
+                        />
+                    </div>
                 </div>
             </div>
         );

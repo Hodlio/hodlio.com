@@ -1,8 +1,18 @@
 .livePrices {
     padding: 20px;
     background: #fff;
+
 }
 
 .livePrices__cards {
+    display: flex;
+    flex: 1 0 350px;
+    align-items: flex-start;
+    justify-content: flex-start;
     padding: 20px 0;
+    margin: 0 -20px;
+}
+
+.livePrices__card {
+    margin: 20px;
 }
