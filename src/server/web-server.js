@@ -1,17 +1,17 @@
 const express = require('express');
-const http = require('http').Server(express);
+const app = require('express')();
+const http = require('http').Server(app);
 const io = require('socket.io')(http);
-const app = express();
 const httpProxy = require('http-proxy');
 const apiProxy = httpProxy.createProxyServer();
 const path = require('path');
 
-app.all("/api/*", function(req, res) {
-    apiProxy.web(req, res, { target: 'http://localhost:8084' });
-});
-
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../../build/index.html'));
+});
+
+app.all("/api/*", function(req, res) {
+    apiProxy.web(req, res, { target: 'http://localhost:8084' });
 });
 
 app.use(express.static('build'));
@@ -48,9 +48,6 @@ io.on('connection', function(socket){
 
 });
 
-
-// io.emit('chat message', msg);
-
 http.listen(8083, function(){
-    console.log('Server listening on port 8083!');
+    console.log('listening on *:8083');
 });
