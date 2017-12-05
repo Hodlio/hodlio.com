@@ -1,8 +1,9 @@
 .heroHeader {
     background-image: linear-gradient(231deg, #E93876, #F76E64);
-    min-height: 0px;
+    min-height: 408px;
     position: relative;
     padding: 70px 0 0 0;
+    overflow: hidden;
 }
 
 .heroHeader__logo {
@@ -33,8 +34,6 @@
     min-width: 1920px;
     overflow: hidden;
     bottom: 0px;
-    left: 60px;
-    position: relative;
-    transform:scale(1.1);
+    position: absolute;
     
 }

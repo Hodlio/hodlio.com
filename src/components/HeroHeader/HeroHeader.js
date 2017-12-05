@@ -9,7 +9,8 @@ const HeroHeader = ({ text, ctaText, onClick }) => (
     <header className="heroHeader">
         <h1 className="heroHeader__text">{text}</h1>
         <div className="heroHeader__cta">
-        <Button onClick={onClick}>{ctaText}</Button></div>
+            <Button onClick={onClick}>{ctaText}</Button>
+        </div>
         <img src={waves} className="heroHeader__image" alt="Hodlio" />
         
     </header>
@@ -22,5 +23,3 @@ HeroHeader.propTypes = {
 };
 
 export default HeroHeader;
-
-// <img src={logo} className="heroHeader__logo" alt="Hodlio" /> //

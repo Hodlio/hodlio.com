@@ -4,7 +4,7 @@ import './header.css';
 import classnames from 'classnames';
 
 const Header = ({ level = 1, children, white = false, centered = false }) => {
-    const classNames = classnames('header', white && 'header--white', centered && 'header--centered￼');
+    const classNames = classnames('header', white && 'header--white', centered && 'header--centered');
     switch(level) {
         case 1:
             return <h1 className={classNames}>{children}</h1>;
