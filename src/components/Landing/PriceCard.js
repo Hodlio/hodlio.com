@@ -4,7 +4,7 @@ import './priceCard.css';
 import Header from '../Common/Header';
 import PriceCardDatum from './PriceCardDatum';
 
-const PriceCard = ({ title, currency, price, shorthand, name, twentyFourHrChange, volume }) => {
+const PriceCard = ({ title, currency, price, shorthand, twentyFourHrChange, volume }) => {
      let decimalPlaces = 2;
      if(currency === 'Ƀ') {
         decimalPlaces = 6;
@@ -22,7 +22,10 @@ const PriceCard = ({ title, currency, price, shorthand, name, twentyFourHrChange
 PriceCard.propTypes = {
     title: PropTypes.string,
     currency: PropTypes.string,
-    price: PropTypes.string
+    price: PropTypes.string,
+    shorthand: PropTypes.string,
+    twentyFourHrChange: PropTypes.any,
+    volume: PropTypes.any
 };
 
 export default PriceCard;
