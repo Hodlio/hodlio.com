@@ -5,30 +5,50 @@ class GdaxClient {
         this.publicClient = new Gdax.PublicClient();
 
         this.pairs = {
-            'ETH-USD': {
-                price: '0',
-                timeUpdated: '',
-                client: new Gdax.PublicClient('ETH-USD')
-            },
             'BTC-USD': {
                 price: '0',
                 timeUpdated: '',
-                client: new Gdax.PublicClient('BTC-USD')
-            },
-            'ETH-EUR': {
-                price: '0',
-                timeUpdated: '',
-                client: new Gdax.PublicClient('ETH-EUR')
+                client: new Gdax.PublicClient('BTC-USD'),
+                currency: '$',
+                shorthand: 'BTC',
+                name: 'Bitcoin',
+                volume: 'Ƀ'
             },
             'BTC-EUR': {
                 price: '0',
                 timeUpdated: '',
-                client: new Gdax.PublicClient('BTC-EUR')
+                client: new Gdax.PublicClient('BTC-EUR'),
+                currency: '€',
+                shorthand: 'BTC',
+                name: 'Bitcoin',
+                volume: 'Ƀ'
+            },
+            'ETH-USD': {
+                price: '0',
+                timeUpdated: '',
+                client: new Gdax.PublicClient('ETH-USD'),
+                currency: '$',
+                shorthand: 'ETH',
+                name: 'Ethereum',
+                volume: 'Ξ'
+            },
+            'ETH-EUR': {
+                price: '0',
+                timeUpdated: '',
+                client: new Gdax.PublicClient('ETH-EUR'),
+                currency: '€',
+                shorthand: 'ETH',
+                name: 'Ethereum',
+                volume: 'Ξ'
             },
             'ETH-BTC': {
                 price: '0',
                 timeUpdated: '',
-                client: new Gdax.PublicClient('ETH-BTC')
+                client: new Gdax.PublicClient('ETH-BTC'),
+                currency: 'Ƀ',
+                shorthand: 'ETH',
+                name: 'Ethereum',
+                volume: 'Ξ'
             }
         };
         this.getTwentyFourHourPrices();
@@ -47,7 +67,6 @@ class GdaxClient {
     }
 
     getCurrentPrice(tradingPair) {
-        // this.publicClient.productID = tradingPair;
         return this.pairs[tradingPair].client.getProductTicker()
             .then(data => {
                 return data;
@@ -62,14 +81,14 @@ class GdaxClient {
             this.pairs[pair].client.getProduct24HrStats()
                 .then((data) => {
                     this.pairs[pair].dayOpenPrice = data.open;
-                    console.log(pair, data.open);
+                    this.pairs[pair].volume = this.pairs[pair].volume.concat(parseFloat(data.volume).toFixed(2));
                 })
         }
     }
 
     connectToPriceFeed() {
         const websocket = new Gdax.WebsocketClient(
-            ['BTC-USD', 'ETH-USD', 'BTC-EUR', 'ETH-EUR']
+            ['BTC-USD', 'ETH-USD', 'BTC-EUR', 'ETH-EUR', 'ETH-BTC']
         );
 
         console.log('connected');
@@ -87,7 +106,7 @@ class GdaxClient {
     updatePairs(data) {
         this.pairs[data.product_id].price = data.price;
         this.pairs[data.product_id].timeUpdated = data.time;
-        console.log(data.product_id, ' is now: ', data.price, ' at: ', data.time, ' 24hr change: ', (((data.price - this.pairs[data.product_id].dayOpenPrice) / this.pairs[data.product_id].dayOpenPrice) * 100).toFixed(2) , "%");
+        this.pairs[data.product_id].twentyFourHrChange = parseFloat(((data.price - this.pairs[data.product_id].dayOpenPrice) / this.pairs[data.product_id].dayOpenPrice) * 100).toFixed(2);
     }
 
     onUpdate(func) {
