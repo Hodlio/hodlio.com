@@ -8,7 +8,7 @@ const apiProxy = httpProxy.createProxyServer();
 const path = require('path');
 
 const GdaxClient = require('./ExchangeApiClients/GdaxClient');
-var Gdax = new GdaxClient();
+const Gdax = new GdaxClient();
 
 Gdax.connectToPriceFeed();
 
@@ -30,14 +30,12 @@ io.on('connection', function(socket){
     console.log('Client connected.');
 
     if(!connections.length) {
-        let prevPrice = "10500.01";
-
         Gdax.onUpdate(_.throttle((pairs) => {
             io.emit('price_updated', {
-                prices: Gdax.pairs
+                prices: pairs
             });
             console.log('emitting new price')
-        }, 1000));
+        }, 2000));
     }
 
     connections.push(socket);
@@ -45,7 +43,7 @@ io.on('connection', function(socket){
     socket.on('disconnect', function(socket){
         console.log('Client disconnected.');
 
-        Gdax.onUpdate = null;
+        Gdax.onUpdate(null);
 
         const i = connections.indexOf(socket);
         connections.splice(i, 1);
