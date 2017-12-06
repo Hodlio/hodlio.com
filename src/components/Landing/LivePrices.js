@@ -3,6 +3,7 @@ import Header from '../Common/Header';
 import './livePrices.css';
 import PriceCard from './PriceCard';
 import socket from '../../socketio';
+import _ from 'lodash';
 
 class LivePrices extends React.Component {
 
@@ -10,7 +11,7 @@ class LivePrices extends React.Component {
         super();
 
         this.state = {
-            price: "0.00"
+            prices: null
         };
     }
 
@@ -24,7 +25,7 @@ class LivePrices extends React.Component {
 
     handleUpdate = (message) => {
         this.setState({
-            price: message.price
+            prices: message.prices
         });
     };
 
@@ -34,21 +35,18 @@ class LivePrices extends React.Component {
                 <Header centered>Live Prices</Header>
 
                 <div className="livePrices__cards">
-                    <div className="livePrices__card">
-                        <PriceCard
-                            title="Bitcoin"
-                            symbol="BTC"
-                            price={this.state.price}
-                        />
-                    </div>
-
-                    <div className="livePrices__card">
-                        <PriceCard
-                            title="Ethereum"
-                            symbol="ETH"
-                            price={this.state.price}
-                        />
-                    </div>
+                    {_.map(this.state.prices, (cardData) => (
+                        <div className="livePrices__card">
+                            <PriceCard
+                                title={cardData.name}
+                                shorthand={cardData.shorthand}
+                                currency={cardData.currency}
+                                price={cardData.price}
+                                twentyFourHrChange={cardData.twentyFourHrChange}
+                                volume={cardData.volume}
+                            />
+                        </div>
+                    ))}
                 </div>
             </div>
         );

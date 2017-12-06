@@ -34,7 +34,7 @@ io.on('connection', function(socket){
 
         Gdax.onUpdate(_.throttle((pairs) => {
             io.emit('price_updated', {
-                price: parseFloat((pairs['ETH-USD'].price)).toFixed(2)
+                prices: Gdax.pairs
             });
             console.log('emitting new price')
         }, 1000));
