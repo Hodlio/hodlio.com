@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './priceCard.css';
-import Header from '../Common/Header';
+import Header from '../Common/Heading';
 import PriceCardDatum from './PriceCardDatum';
 
 const PriceCard = ({ title, currency, price, shorthand, twentyFourHrChange, volume }) => {

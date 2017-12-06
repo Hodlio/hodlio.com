@@ -1,0 +1,10 @@
+.inputContainerWithLabel {
+    padding: 20px 0;
+}
+
+.inputContainerWithLabel__label {
+    color: #fff;
+    font-size: 1.8rem;
+    padding: 0 0 5px 0;
+    display: inline-block;
+}

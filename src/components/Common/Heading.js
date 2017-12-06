@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './header.css';
+import './heading.css';
 import classnames from 'classnames';
 
-const Header = ({ level = 1, children, white = false, centered = false }) => {
-    const classNames = classnames('header', white && 'header--white', centered && 'header--centered');
+const Heading = ({ level = 1, children, white = false, centered = false }) => {
+    const classNames = classnames('heading', white && 'heading--white', centered && 'heading--centered');
     switch(level) {
         case 1:
             return <h1 className={classNames}>{children}</h1>;
@@ -21,11 +21,11 @@ const Header = ({ level = 1, children, white = false, centered = false }) => {
     }
 };
 
-Header.propTypes = {
+Heading.propTypes = {
     level: PropTypes.number,
     children: PropTypes.node,
     white: PropTypes.bool,
     centered: PropTypes.bool
 };
 
-export default Header;
+export default Heading;

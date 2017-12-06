@@ -1,16 +1,22 @@
 import React from 'react';
 import './button.css';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-class Button extends React.Component {
-    render() {
+const Button = ({ to, children, onClick }) => {
+    if(to) {
         return (
-            <button className="button" onClick={this.props.onClick}>{this.props.children}</button>
-        );
+            <Link className="button" to={to}>{children}</Link>
+        )
     }
-}
+
+    return (
+        <button className="button" onClick={onClick}>{children}</button>
+    );
+};
 
 Button.propTypes = {
+    to: PropTypes.string,
     children: PropTypes.node,
     onClick: PropTypes.func
 };
