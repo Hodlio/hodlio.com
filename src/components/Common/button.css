@@ -12,8 +12,7 @@
     line-height: 30px;
     border: none;
     outline: none;
-    /* fuck this fucking button why do you have border and outline you fuck */
-    
+    text-decoration: none;
 }
 
 .button:active {

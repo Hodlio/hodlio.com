@@ -1,0 +1,27 @@
+import React from 'react';
+import Header from '../components/Common/Heading';
+import Nav from '../components/Common/Nav';
+import HeroHeader from '../components/HeroHeader/HeroHeader';
+import LivePrices from '../components/Landing/LivePrices';
+import './landing.css';
+
+const Landing = ({ match }) => (
+    <div className="landing">
+        <Nav />
+        <HeroHeader
+            text="The blockchain portfolio platform tagline."
+            ctaText="Start your portfolio"
+            ctaLink="/create-account"
+        />
+
+        <main className="landing__main">
+            <div className="landing__intro">
+                <Header>Welcome</Header>
+                <p>Here are some words very good yes indeed.</p>
+            </div>
+            <LivePrices />
+        </main>
+    </div>
+);
+
+export default Landing;

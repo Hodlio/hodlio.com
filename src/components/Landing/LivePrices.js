@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../Common/Header';
+import Header from '../Common/Heading';
 import './livePrices.css';
 import PriceCard from './PriceCard';
 import socket from '../../socketio';
@@ -16,11 +16,15 @@ class LivePrices extends React.Component {
     }
 
     componentWillMount() {
-        socket.on('price_updated', this.handleUpdate);
+        if(socket) {
+            socket.on('price_updated', this.handleUpdate);
+        }
     }
 
     componentWillUnmount() {
-        socket.removeListener('price_updated', this.handleUpdate);
+        if(socket) {
+            socket.removeListener('price_updated', this.handleUpdate);
+        }
     }
 
     handleUpdate = (message) => {

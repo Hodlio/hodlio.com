@@ -1,0 +1,12 @@
+.input {
+    border-radius: 6px;
+    border: 1px solid #fff;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 15px 20px;
+    outline: 0;
+    color: #fff;
+    font-size: 1.6rem;
+    font-family: 'Nunito Sans', sans-serif;
+    width: 100%;
+    display: block;
+}

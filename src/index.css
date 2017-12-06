@@ -9,17 +9,6 @@ body {
   background: #F5F5F5;
 }
 
-body.meatspin {
-  animation: meat-spin infinite 1s linear;
-}
-
 button {
-￼    font-family: 'Nunito Sans', sans-serif;
-
-}
-
-@keyframes meat-spin {
-  0% { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(180deg) scale(2); }
-  100% { transform: rotate(360deg) scale(1); }
+  font-family: 'Nunito Sans', sans-serif;
 }

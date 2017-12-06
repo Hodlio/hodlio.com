@@ -1,4 +1,4 @@
-.header {
+.heading {
     font-weight: 400;
     color: #565B77;
     position: relative;
@@ -6,11 +6,11 @@
     margin: 20px 0;
 }
 
-.header.header--white {
+.heading.heading--white {
     color: #fff;
 }
 
-.header:after {
+.heading:after {
     content: '';
     height: 3px;
     width: 50%;
@@ -21,12 +21,12 @@
        
 }
 
-.header--centered {
+.heading--centered {
     text-align: center;
     display: block;
 }
 
-.header--centered:after {
+.heading--centered:after {
     top: 140%;
     left: 50%;
     width: 40px;
@@ -34,32 +34,32 @@
     transform: translateX(-50%);
 }
 
-.header.header--white:after {
+.heading.heading--white:after {
     background: #fff;
 }
 
-h1.header {
+h1.heading {
     font-size: 3.2rem;
     margin: 20px 0;
 }
 
-h2.header {
+h2.heading {
     font-size: 2.6rem;
     font-weight: 300;
 }
 
-h3.header {
+h3.heading {
     font-size: 2.4rem;
 }
 
-h4.header {
+h4.heading {
     font-size: 2rem;
 }
 
-h5.header {
+h5.heading {
     font-size: 1.6rem;
 }
 
-h6.header {
+h6.heading {
     font-size: 1.4rem;
 }
