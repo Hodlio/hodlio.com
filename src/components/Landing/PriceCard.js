@@ -4,18 +4,24 @@ import './priceCard.css';
 import Header from '../Common/Header';
 import PriceCardDatum from './PriceCardDatum';
 
-const PriceCard = ({ title, symbol, price }) => (
-    <section className={`priceCard priceCard--${symbol}`}>
-        <Header white level={2}>{title} <span className="priceCard__symbol">({symbol})</span></Header>
-        <PriceCardDatum label="Price" value={`$${price}`} />
-        <PriceCardDatum label="Change 24hr" value="+1.4%" />
-        <PriceCardDatum label="Volume" value="£131.44m" />
-    </section>
-);
+const PriceCard = ({ title, currency, price, shorthand, name, twentyFourHrChange, volume }) => {
+     let decimalPlaces = 2;
+     if(currency === 'Ƀ') {
+        decimalPlaces = 6;
+     }
+     return (
+        <section className={`priceCard priceCard--${shorthand}`}>
+            <Header white level={2}>{title} <span className="priceCard__symbol">({shorthand})</span></Header>
+            <PriceCardDatum label="Price" value={`${currency}${parseFloat(price).toFixed(decimalPlaces)}`} />
+            <PriceCardDatum label="Change 24hr" value={`${twentyFourHrChange}%`} />
+            <PriceCardDatum label="Volume" value={volume} />
+        </section>
+    )
+}
 
 PriceCard.propTypes = {
     title: PropTypes.string,
-    symbol: PropTypes.string,
+    currency: PropTypes.string,
     price: PropTypes.string
 };
 
