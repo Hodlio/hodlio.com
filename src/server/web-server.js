@@ -9,10 +9,12 @@ const path = require('path');
 const logger = require('./logger');
 const GdaxClient = require('./ExchangeApiClients/GdaxClient');
 const Gdax = new GdaxClient(logger);
-
+const morgan = require('morgan');
 const PORT = 8083;
 
 Gdax.connectToPriceFeed();
+
+app.use(morgan("combined", { stream: { write: message => logger.info(message) }}));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../../build/index.html'));
