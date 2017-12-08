@@ -6,9 +6,11 @@ const io = require('socket.io')(http);
 const httpProxy = require('http-proxy');
 const apiProxy = httpProxy.createProxyServer();
 const path = require('path');
-
+const logger = require('./logger');
 const GdaxClient = require('./ExchangeApiClients/GdaxClient');
-const Gdax = new GdaxClient();
+const Gdax = new GdaxClient(logger);
+
+const PORT = 8083;
 
 Gdax.connectToPriceFeed();
 
@@ -22,26 +24,35 @@ app.all("/api/*", function(req, res) {
 
 app.use(express.static('build'));
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../build/index.html'));
+});
+
 function handleGdaxApiUpdate(currencyPairs) {
     io.emit('price_updated', {
         prices: currencyPairs
     });
-    console.log('emitting new prices');
+
+    logger.info('Update received. Emitting new price data.');
 }
 
 io.on('connection', function(socket){
-    console.log('Client connected.');
+    logger.info('Client connected.');
 
     if(!Gdax.onUpdateFunc) {
         Gdax.onUpdate(_.throttle(handleGdaxApiUpdate, 2000));
     }
 
-    socket.on('disconnect', function(socket){
-        console.log('Client disconnected.');
+    socket.on('disconnect', function(socket) {
+        logger.info('Client disconnected.');
     });
 
 });
 
-http.listen(8083, function(){
-    console.log('listening on *:8083');
+io.on('error', function(error) {
+    logger.warn('Socket.IO error.', error);
+});
+
+http.listen(PORT, function() {
+    logger.info(`Server started. Listening on port ${PORT}`);
 });
