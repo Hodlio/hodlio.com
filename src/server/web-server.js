@@ -22,35 +22,22 @@ app.all("/api/*", function(req, res) {
 
 app.use(express.static('build'));
 
-const connections = [];
-
-let priceUpdaterIntervalId;
+function handleGdaxApiUpdate(currencyPairs) {
+    io.emit('price_updated', {
+        prices: currencyPairs
+    });
+    console.log('emitting new prices');
+}
 
 io.on('connection', function(socket){
     console.log('Client connected.');
 
-    if(!connections.length) {
-        Gdax.onUpdate(_.throttle((pairs) => {
-            io.emit('price_updated', {
-                prices: pairs
-            });
-            console.log('emitting new price')
-        }, 2000));
+    if(!Gdax.onUpdateFunc) {
+        Gdax.onUpdate(_.throttle(handleGdaxApiUpdate, 2000));
     }
-
-    connections.push(socket);
 
     socket.on('disconnect', function(socket){
         console.log('Client disconnected.');
-
-        Gdax.onUpdate(null);
-
-        const i = connections.indexOf(socket);
-        connections.splice(i, 1);
-
-        if(connections.length === 0) {
-            clearInterval(priceUpdaterIntervalId);
-        }
     });
 
 });
