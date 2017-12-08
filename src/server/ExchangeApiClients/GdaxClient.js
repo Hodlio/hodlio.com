@@ -1,7 +1,8 @@
 const Gdax = require('gdax');
 
 class GdaxClient {
-    constructor() {
+    constructor(logger) {
+        this.logger = logger;
         this.publicClient = new Gdax.PublicClient();
 
         this.pairs = {
@@ -51,6 +52,7 @@ class GdaxClient {
                 volume: 'Ξ'
             }
         };
+
         this.getTwentyFourHourPrices();
     }
 
@@ -58,11 +60,11 @@ class GdaxClient {
         return this.publicClient
             .getProducts()
             .then(data => {
-              return data;
+                return data;
             })
             .catch(e => {
-              console.log(e);
-              return e;
+                this.logger.warn('Error getting products.', e);
+                return e;
             });
     }
 
@@ -71,18 +73,24 @@ class GdaxClient {
             .then(data => {
                 return data;
             }).catch(e => {
-                console.log(e);
+                this.logger.warn(`Error getting current price for ${tradingPair}`, e);
                 return e;
             });
     }
 
     getTwentyFourHourPrices() {
         for(const pair of Object.keys(this.pairs)) {
-            this.pairs[pair].client.getProduct24HrStats()
+            this
+                .pairs[pair]
+                .client
+                .getProduct24HrStats()
                 .then((data) => {
                     this.pairs[pair].dayOpenPrice = data.open;
                     this.pairs[pair].volume = this.pairs[pair].volume.concat(parseFloat(data.volume).toFixed(2));
                 })
+                .catch((e) => {
+                    this.logger.warn(`Error getting 24 hour stats for ${pair}.`, e);
+                });
         }
     }
 
@@ -91,7 +99,7 @@ class GdaxClient {
             ['BTC-USD', 'ETH-USD', 'BTC-EUR', 'ETH-EUR', 'ETH-BTC']
         );
 
-        console.log('connected');
+        this.logger.info('Connected to price feed.');
 
         websocket.on('message', data => {
             if(data.type === 'match') {
@@ -99,8 +107,12 @@ class GdaxClient {
                 this.onUpdateFunc && this.onUpdateFunc(this.pairs);
             }
         });
-        websocket.on('error', err => { console.log('ERROR: ', err); });
-        websocket.on('close', () => { console.log('closed'); });
+        websocket.on('error', err => {
+            this.logger.error('Error with price feed connection.', err);
+        });
+        websocket.on('close', () => {
+            this.logger.info('Price feed connection closed.')
+        });
     }
 
     updatePairs(data) {
