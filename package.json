@@ -25,8 +25,11 @@
     "eject": "react-scripts eject",
     "start-dev-server": "react-scripts start",
     "start-api": "node ./src/server/api.js",
-    "start-web-server": "node ./src/server/web-server.js",
+    "start-web-server": "./node_modules/.bin/nodemon ./src/server/web-server.js",
     "start-prod": "npm run build && npm run start-web-server"
   },
-  "proxy": "http://localhost:8083"
+  "proxy": "http://localhost:8083",
+  "devDependencies": {
+    "nodemon": "^1.12.5"
+  }
 }
