@@ -16,6 +16,22 @@ Gdax.connectToPriceFeed();
 
 app.use(morgan("combined", { stream: { write: message => logger.info(message) }}));
 
+app.get('/unregister', (req, res) => {
+   res.send(`
+   <html>
+   <head>
+   <title>Unregister service-worker.</title>
+    <script>
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+ for(let registration of registrations) {
+  registration.unregister()
+} }).then(function() { console.log('done'); }).catch((e) => console.log(e));
+    </script>
+    </head>
+   </html>
+   `)
+});
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../../build/index.html'));
 });
