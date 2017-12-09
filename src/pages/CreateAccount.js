@@ -1,19 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Nav from '../components/Common/Nav';
-import './createAccount.css';
+import './authStyles.css';
 import Input from '../components/Common/Input';
 import InputContainerWithLabel from '../components/Common/InputContainerWithLabel';
 import Button from '../components/Common/Button';
+import { Link } from 'react-router-dom';
+import waves from '../waves@2x.png';
 
 class CreateAccount extends React.Component {
     render() {
         return (
-            <div className="createAccount">
+            <div className="authStyles">
                 <Nav />
-                <h1 className="createAccount__pageHeading">Create your account.</h1>
+                <img src={waves} className="authStyles__wavesTop" alt="Hodlio" />
+                <h1 className="authStyles__pageHeading">Create your account.</h1>
 
-                <div className="createAccount__form">
+                <div className="authStyles__form">
                     <InputContainerWithLabel label="Email">
                         <Input />
                     </InputContainerWithLabel>
@@ -26,11 +29,14 @@ class CreateAccount extends React.Component {
                         <Input type="password" />
                     </InputContainerWithLabel>
 
-                    <div className="createAccount__formFooter">
+                    <div className="authStyles__formFooter">
                         <Button>Create Account</Button>
                     </div>
-                </div>
 
+                    <Link to="/login" className="authStyles__link">Already have an account?</Link>
+
+                </div>
+                <img src={waves} className="authStyles__waves" alt="Hodlio" />
             </div>
         );
     }
