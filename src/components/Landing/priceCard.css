@@ -18,6 +18,11 @@
 }
 
 .priceCard--ETH {
-    background: linear-gradient(53deg, #EA3E74, #565B77);
-    background: url(../../images/logos/ETH.svg) no-repeat 110% -110%/35%, linear-gradient(53deg, #EA3E74, #565B77);
+    background: linear-gradient(53deg, #EA3E74, #3a48ea);
+    background: url(../../images/logos/ETH.svg) no-repeat 110% -110%/35%, linear-gradient(53deg, #EA3E74, #3a48ea);
+}
+
+.priceCard--LTC {
+    background: linear-gradient(53deg, #EA3E74, #3f91ec);
+    background: url(../../images/logos/LTC.svg) no-repeat 115% -50%/45%, linear-gradient(53deg, #EA3E74, #3f91ec);
 }

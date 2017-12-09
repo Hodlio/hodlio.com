@@ -24,6 +24,15 @@ class GdaxClient {
                 name: 'Bitcoin',
                 volume: 'Ƀ'
             },
+            'BTC-GBP': {
+                price: '0',
+                timeUpdated: '',
+                client: new Gdax.PublicClient('BTC-GBP'),
+                currency: '£',
+                shorthand: 'BTC',
+                name: 'Bitcoin',
+                volume: 'Ƀ'
+            },
             'ETH-USD': {
                 price: '0',
                 timeUpdated: '',
@@ -50,7 +59,35 @@ class GdaxClient {
                 shorthand: 'ETH',
                 name: 'Ethereum',
                 volume: 'Ξ'
+            },
+            'LTC-USD': {
+                price: '0',
+                timeUpdated: '',
+                client: new Gdax.PublicClient('LTC-USD'),
+                currency: '$',
+                shorthand: 'LTC',
+                name: 'Litecoin',
+                volume: 'Ł'
+            },
+            'LTC-EUR': {
+                price: '0',
+                timeUpdated: '',
+                client: new Gdax.PublicClient('LTC-EUR'),
+                currency: '€',
+                shorthand: 'LTC',
+                name: 'Litecoin',
+                volume: 'Ł'
+            },
+            'LTC-BTC': {
+                price: '0',
+                timeUpdated: '',
+                client: new Gdax.PublicClient('LTC-BTC'),
+                currency: 'Ƀ',
+                shorthand: 'LTC',
+                name: 'Litecoin',
+                volume: 'Ł'
             }
+
         };
 
         this.getTwentyFourHourPrices();
@@ -96,7 +133,7 @@ class GdaxClient {
 
     connectToPriceFeed() {
         const websocket = new Gdax.WebsocketClient(
-            ['BTC-USD', 'ETH-USD', 'BTC-EUR', 'ETH-EUR', 'ETH-BTC']
+            ['BTC-USD', 'ETH-USD', 'BTC-EUR', 'ETH-EUR', 'ETH-BTC', 'BTC-GBP', 'LTC-USD', 'LTC-EUR', 'LTC-BTC']
         );
 
         this.logger.info('Connected to price feed.');

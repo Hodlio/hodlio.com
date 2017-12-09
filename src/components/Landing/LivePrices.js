@@ -4,6 +4,7 @@ import './livePrices.css';
 import PriceCard from './PriceCard';
 import socket from '../../socketio';
 import _ from 'lodash';
+import Select from '../Common/Select';
 
 class LivePrices extends React.Component {
 
@@ -11,8 +12,27 @@ class LivePrices extends React.Component {
         super();
 
         this.state = {
-            prices: null
+            prices: null,
+            chosenCurrency: '$'
         };
+        this.chosenCurrencyOptions = [
+            {
+                value: '$',
+                display: 'USD'
+            },
+            {
+                value: '€',
+                display: 'EUR'
+            },
+            {
+                value: '£',
+                display: 'GBP'
+            },
+            {
+                value: 'Ƀ',
+                display: 'BTC'
+            },
+        ]
     }
 
     componentWillMount() {
@@ -33,24 +53,41 @@ class LivePrices extends React.Component {
         });
     };
 
+    handleChangeCurrency = (currency) => {
+        this.setState({ chosenCurrency: currency.currentTarget.value });
+    };
+
     render() {
         return (
             <div className="livePrices">
                 <Header centered>Live Prices</Header>
-
+                <div className="livePrices__select">
+                    <div className="livePrices__selectLabel">
+                        Select a Currency
+                    </div>
+                    <Select value={this.state.chosenCurrency} onChange={this.handleChangeCurrency} options={this.chosenCurrencyOptions} />
+                </div>
                 <div className="livePrices__cards">
-                    {_.map(this.state.prices, (cardData) => (
-                        <div className="livePrices__card">
-                            <PriceCard
-                                title={cardData.name}
-                                shorthand={cardData.shorthand}
-                                currency={cardData.currency}
-                                price={cardData.price}
-                                twentyFourHrChange={cardData.twentyFourHrChange}
-                                volume={cardData.volume}
-                            />
-                        </div>
-                    ))}
+                    {_.map(this.state.prices, (cardData) => {
+
+                        if (cardData.currency === this.state.chosenCurrency) {
+                            return (
+                                <div className="livePrices__card">
+                                    <PriceCard
+                                        title={cardData.name}
+                                        shorthand={cardData.shorthand}
+                                        currency={cardData.currency}
+                                        price={cardData.price}
+                                        twentyFourHrChange={cardData.twentyFourHrChange}
+                                        volume={cardData.volume}
+                                    />
+                                </div>
+                            );
+                        }
+
+                        return <div/>
+
+                    })}
                 </div>
             </div>
         );

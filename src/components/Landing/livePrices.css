@@ -7,9 +7,8 @@
 
 .livePrices__cards {
     display: flex;
-    flex: 1 0 350px;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: center;
     flex-wrap: wrap;
     padding: 20px 0;
     margin: 0 -20px;
@@ -17,4 +16,14 @@
 
 .livePrices__card {
     margin: 20px;
+    flex: 1 1 auto;
+}
+
+.livePrices__select {
+    width: 110px;
+}
+
+.livePrices__selectLabel {
+    font-size: 14px;
+    padding: 0 0 5px 1px;
 }
