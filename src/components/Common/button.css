@@ -1,4 +1,5 @@
 .button {
+    display: inline-block;
     font-family: 'Nunito Sans', sans-serif;
     background-color: white;
     border-radius: 6px;
@@ -13,8 +14,14 @@
     border: none;
     outline: none;
     text-decoration: none;
+    transition: transform 0.05s ease;
+    transform: translate(0px, 0px);
+}
+
+.button:hover {
+    transform: translate(0, -1px);
 }
 
 .button:active {
-    transform: translate3d(2px, 2px, 0);
+    transform: translate(2px, 2px);
 }
