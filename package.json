@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "classnames": "^2.2.5",
     "express": "^4.16.2",
     "gdax": "github:coinbase/gdax-node",
     "http-proxy": "^1.16.2",
     "lodash": "^4.17.4",
+    "mongoose": "^4.13.6",
     "morgan": "^1.9.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -24,7 +26,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "start-dev-server": "react-scripts start",
-    "start-api": "node ./src/server/api.js",
+    "start-api": "./node_modules/.bin/nodemon  ./src/server/api.js",
     "start-web-server": "./node_modules/.bin/nodemon ./src/server/web-server.js",
     "start-prod": "npm run build && npm run start-web-server"
   },
