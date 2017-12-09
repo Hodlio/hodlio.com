@@ -39,8 +39,8 @@ class LivePrices extends React.Component {
                 <Header centered>Live Prices</Header>
 
                 <div className="livePrices__cards">
-                    {_.map(this.state.prices, (cardData) => (
-                        <div className="livePrices__card">
+                    {_.map(this.state.prices, (cardData, index) => (
+                        <div className="livePrices__card" key={`livePrices__card${index}`}>
                             <PriceCard
                                 title={cardData.name}
                                 shorthand={cardData.shorthand}

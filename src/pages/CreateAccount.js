@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Nav from '../components/Common/Nav';
 import './authStyles.css';
 import Input from '../components/Common/Input';
