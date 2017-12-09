@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import waves from '../../waves@2x.png'
+import waves from '../../waves@2x.png';
 import Button from '../Common/Button';
 import './heroHeader.css';
 
