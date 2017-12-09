@@ -1,0 +1,61 @@
+.authStyles {
+    background-image: linear-gradient(180deg, #E93876, #F76E64);
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.authStyles__pageHeading {
+    margin: 0;
+    padding: 70px 14px 0 14px;
+    font-weight: 800;
+    text-align: center;
+    line-height: 38px;
+    color: white;
+    font-size: 32px;
+}
+
+.authStyles__form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 100px 20px 20px 20px;
+    background: transparent;
+}
+
+.authStyles__formFooter {
+    text-align: center;
+    padding: 20px 0 0 0;
+}
+
+.authStyles__link {
+    text-align: center;
+    width: 200px;
+    margin: 0 auto;
+    font-size: 14px;
+    color: white;
+    padding: 25px;
+    display: block;
+    background: transparent;
+}
+
+.authStyles__link:hover {
+    color: #565B77;
+}
+
+.authStyles__waves {
+    width: 100%;
+    min-width: 1920px;
+    overflow: hidden;
+    height: 350px;
+    position: absolute;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.authStyles__wavesTop {
+    @extend .authStyle__waves;
+    transform: rotate(180deg);
+    top: 0;
+    position: absolute;
+    pointer-events: none;
+}
