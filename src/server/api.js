@@ -9,13 +9,12 @@ app.use(morgan("combined", { stream: { write: message => logger.info(message) }}
 app.use(bodyParser.json());
 
 app.post('/api/users', (req, res) => {
-    const { email, password, passwordConfirmation } = req.body;
+    const { email, password } = req.body;
 
-    if(email && password && passwordConfirmation) {
+    if(email && password) {
         User.create({
             email,
-            password,
-            passwordConfirmation
+            password
         }, function(err, user) {
             if(err) {
                 logger.error('Error creating user.', err);
