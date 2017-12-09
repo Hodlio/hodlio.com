@@ -17,7 +17,7 @@ const PriceCard = ({ title, currency, price, shorthand, twentyFourHrChange, volu
             <PriceCardDatum label="Volume" value={volume} />
         </section>
     )
-}
+};
 
 PriceCard.propTypes = {
     title: PropTypes.string,
