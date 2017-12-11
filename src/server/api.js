@@ -35,7 +35,13 @@ app.post('/api/users', (req, res) => {
                 }
             } else {
                 logger.info(`Created user with email ${user.email}.`);
-                // sendWelcomeEmail(user.email);
+                sendWelcomeEmail(user.email)
+                    .then(() => {
+                        logger.info(`Sent welcome email to ${user.email}.`);
+                    })
+                    .catch((e) => {
+                        logger.error(`Failed to send welcome email to ${user.email}.`, e);
+                    });
                 res.status(200);
             }
 
