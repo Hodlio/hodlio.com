@@ -7,12 +7,13 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const session = require('express-session');
 const requiresAuthMiddleware = require('./middleware/requiresAuth');
+const { sendWelcomeEmail } = require('./emails/sendEmail');
 
 app.use(morgan("combined", { stream: { write: message => logger.info(message) }}));
 app.use(bodyParser.json());
 
 app.use(session({
-    secret: 'VzWj6*UePgwZ9%TP',
+    secret: process.env.EXPRESS_SESSION_SECRET,
     resave: true,
     saveUninitialized: false
 }));
@@ -34,6 +35,7 @@ app.post('/api/users', (req, res) => {
                 }
             } else {
                 logger.info(`Created user with email ${user.email}.`);
+                // sendWelcomeEmail(user.email);
                 res.status(200);
             }
 
