@@ -7,15 +7,17 @@ apiKey.apiKey = process.env.SENDINBLUE_API_KEY;
 
 const apiInstance = new SendinBlueApi.SMTPApi();
 
-export function sendWelcomeEmail(email) {
-    const sendSmtpEmail = new SendinBlueApi.SendSmtpEmail();
+module.exports = {
+    sendWelcomeEmail: function sendWelcomeEmail(email) {
+        const sendSmtpEmail = new SendinBlueApi.SendSmtpEmail();
 
-    Object.assign(sendSmtpEmail, {
-        sender: { "name": "Hodlio Staff", "email":"matt@hodlio.com" },
-        to: [{ email: email }],
-        htmlContent: welcomeTemplate(email),
-        subject: 'Welcome to Hodlio!'
-    });
+        Object.assign(sendSmtpEmail, {
+            sender: { "name": "Hodlio Staff", "email":"matt@hodlio.com" },
+            to: [{ email: email }],
+            htmlContent: welcomeTemplate(email),
+            subject: 'Welcome to Hodlio!'
+        });
 
-    return apiInstance.sendTransacEmail(sendSmtpEmail);
-}
+        return apiInstance.sendTransacEmail(sendSmtpEmail);
+    }
+};

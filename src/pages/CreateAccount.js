@@ -6,37 +6,61 @@ import InputContainerWithLabel from '../components/Common/InputContainerWithLabe
 import Button from '../components/Common/Button';
 import { Link } from 'react-router-dom';
 import waves from '../waves@2x.png';
+import { createAccount } from '../dataLayer/auth';
 
 class CreateAccount extends React.Component {
+
+    constructor() {
+        super();
+        this.state = {
+            email: '',
+            password: '',
+            confirmPassword: ''
+        };
+    }
+
+    updateEmail = (e) => this.setState({ email: e.target.value });
+    updatePassword = (e) => this.setState({ password: e.target.value });
+    updateConfirmPassword = (e) => this.setState({ confirmPassword: e.target.value });
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        if(this.state.password === this.state.confirmPassword) {
+            createAccount(this.state.email, this.state.password);
+        } else {
+            alert('Passwords don\'t match.'); //todo
+        }
+    };
+
     render() {
         return (
-            <div className="authStyles">
+            <form className="authStyles" onSubmit={this.handleSubmit}>
                 <Nav />
                 <img src={waves} className="authStyles__wavesTop" alt="Hodlio" />
                 <h1 className="authStyles__pageHeading">Create your account.</h1>
 
                 <div className="authStyles__form">
                     <InputContainerWithLabel label="Email">
-                        <Input />
+                        <Input value={this.state.email} onChange={this.updateEmail} />
                     </InputContainerWithLabel>
 
                     <InputContainerWithLabel label="Password">
-                        <Input type="password" />
+                        <Input value={this.state.password} onChange={this.updatePassword} type="password" />
                     </InputContainerWithLabel>
 
                     <InputContainerWithLabel label="Confirm Password">
-                        <Input type="password" />
+                        <Input value={this.state.confirmPassword} onChange={this.updateConfirmPassword} type="password" />
                     </InputContainerWithLabel>
 
                     <div className="authStyles__formFooter">
-                        <Button>Create Account</Button>
+                        <Button type="submit">Create Account</Button>
                     </div>
 
                     <Link to="/login" className="authStyles__link">Already have an account?</Link>
 
                 </div>
                 <img src={waves} className="authStyles__waves" alt="Hodlio" />
-            </div>
+            </form>
         );
     }
 }

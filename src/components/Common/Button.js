@@ -3,7 +3,7 @@ import './button.css';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const Button = ({ to, children, onClick }) => {
+const Button = ({ to, children, onClick, type = 'button' }) => {
     if(to) {
         return (
             <Link className="button" to={to}>{children}</Link>
@@ -11,7 +11,7 @@ const Button = ({ to, children, onClick }) => {
     }
 
     return (
-        <button className="button" onClick={onClick}>{children}</button>
+        <button type={type} className="button" onClick={onClick}>{children}</button>
     );
 };
 
