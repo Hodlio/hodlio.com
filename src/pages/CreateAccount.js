@@ -7,6 +7,7 @@ import Button from '../components/Common/Button';
 import { Link } from 'react-router-dom';
 import waves from '../waves@2x.png';
 import { createAccount } from '../dataLayer/auth';
+import { withRouter } from 'react-router-dom';
 
 class CreateAccount extends React.Component {
 
@@ -37,6 +38,10 @@ class CreateAccount extends React.Component {
                         this.setState({
                             isLoading: false,
                             hasError: false
+                        }, () => {
+                            window.setTimeout(() => {
+                                this.props.history.push('/login');
+                            }, 500);
                         });
                     })
                     .catch(() => {
@@ -88,4 +93,4 @@ class CreateAccount extends React.Component {
     }
 }
 
-export default CreateAccount;
+export default withRouter(CreateAccount);

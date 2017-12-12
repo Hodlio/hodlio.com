@@ -7,6 +7,7 @@ import Button from '../components/Common/Button';
 import { Link } from 'react-router-dom';
 import waves from '../waves@2x.png';
 import { login } from '../dataLayer/auth';
+import { withRouter } from 'react-router-dom';
 
 class Login extends React.Component {
 
@@ -35,6 +36,10 @@ class Login extends React.Component {
                     this.setState({
                         isLoading: false,
                         hasError: false
+                    }, () => {
+                        window.setTimeout(() => {
+                            this.props.history.push('/dashboard');
+                        }, 500);
                     });
                 })
                 .catch(() => {
@@ -78,4 +83,4 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+export default withRouter(Login);
