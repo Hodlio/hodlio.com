@@ -13,6 +13,8 @@ class CreateAccount extends React.Component {
     constructor() {
         super();
         this.state = {
+            isLoading: false,
+            hasError: false,
             email: '',
             password: '',
             confirmPassword: ''
@@ -26,7 +28,24 @@ class CreateAccount extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         if(this.state.password === this.state.confirmPassword) {
-            createAccount(this.state.email, this.state.password);
+            this.setState({
+                isLoading: true,
+                hasError: false
+            }, () => {
+                createAccount(this.state.email, this.state.password)
+                    .then(() => {
+                        this.setState({
+                            isLoading: false,
+                            hasError: false
+                        });
+                    })
+                    .catch(() => {
+                        this.setState({
+                            isLoading: false,
+                            hasError: true
+                        });
+                    });
+            });
         } else {
             alert('Passwords don\'t match.'); //todo
         }
@@ -53,7 +72,11 @@ class CreateAccount extends React.Component {
                     </InputContainerWithLabel>
 
                     <div className="authStyles__formFooter">
-                        <Button type="submit">Create Account</Button>
+                        <Button
+                            type="submit"
+                            isLoading={this.state.isLoading}
+                            hasError={this.state.hasError}
+                        >Create Account</Button>
                     </div>
 
                     <Link to="/login" className="authStyles__link">Already have an account?</Link>

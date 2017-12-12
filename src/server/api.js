@@ -66,6 +66,7 @@ app.post('/api/login', (req, res) => {
                  res.status(500);
              } else if(user) {
                  req.session.userId = user._id;
+                 req.session.email = user.email;
                  res.status(200);
              } else {
                  res.status(500);
@@ -93,8 +94,8 @@ app.post('/api/logout', function(req, res) {
     }
 });
 
-app.get('/api/secret', requiresAuthMiddleware, (req, res) => {
-    res.send("Hello from API");
+app.get('/api/dashboard', requiresAuthMiddleware, (req, res) => {
+    res.send({ email: req.session.email });
 });
 
 app.listen(8084, () => logger.info('API listening on port 8084!'));

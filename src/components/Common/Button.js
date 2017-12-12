@@ -2,16 +2,20 @@ import React from 'react';
 import './button.css';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import classnames from 'classnames';
 
-const Button = ({ to, children, onClick, type = 'button' }) => {
+const Button = ({ to, children, onClick, type = 'button', isLoading, hasError }) => {
+
+    const classNames = classnames('button', isLoading && 'button--loading', hasError && 'button-error');
+
     if(to) {
         return (
-            <Link className="button" to={to}>{children}</Link>
+            <Link className={classNames} to={to}>{children}</Link>
         )
     }
 
     return (
-        <button type={type} className="button" onClick={onClick}>{children}</button>
+        <button type={type} className={classNames} onClick={onClick}>{children}</button>
     );
 };
 

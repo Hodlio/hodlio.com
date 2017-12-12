@@ -15,10 +15,6 @@ const Landing = ({ match }) => (
         />
 
         <main className="landing__main">
-            <div className="landing__intro">
-                <Header>Welcome</Header>
-                <p>Here are some words very good yes indeed.</p>
-            </div>
             <LivePrices />
         </main>
     </div>

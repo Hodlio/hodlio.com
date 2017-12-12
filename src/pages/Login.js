@@ -13,6 +13,8 @@ class Login extends React.Component {
     constructor() {
         super();
         this.state = {
+            isLoading: false,
+            hasError: false,
             email: '',
             password: '',
             confirmPassword: ''
@@ -24,7 +26,24 @@ class Login extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        login(this.state.email, this.state.password);
+        this.setState({
+            isLoading: true,
+            hasError: false
+        }, () => {
+            login(this.state.email, this.state.password)
+                .then(() => {
+                    this.setState({
+                        isLoading: false,
+                        hasError: false
+                    });
+                })
+                .catch(() => {
+                    this.setState({
+                        isLoading: false,
+                        hasError: true
+                    });
+                });
+        });
     };
 
     render() {
@@ -43,7 +62,11 @@ class Login extends React.Component {
                    </InputContainerWithLabel>
 
                    <div className="authStyles__formFooter">
-                       <Button type="submit">Login</Button>
+                       <Button
+                           type="submit"
+                           isLoading={this.state.isLoading}
+                           hasError={this.state.hasError}
+                       >Login</Button>
                    </div>
 
                    <Link to="/create-account" className="authStyles__link">Don't have an account yet?</Link>

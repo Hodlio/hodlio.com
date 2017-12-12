@@ -352,7 +352,7 @@ module.exports = function getWelcomeEmail(emailAddress) {
                                                     <tr>
                                                         <td style="font-family:Arial,Helvetica,sans-serif; color:#3c4858; text-align:center;">
 
-                                                            <span style="color:#3c4858;"><strong><span style="font-size:24px;">Welcome to Hodlio!</span></strong></span>
+                                                            <span style="color:#3c4858;"><strong><span style="font-size:24px;">Thanks for signing up!</span></strong></span>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -406,14 +406,9 @@ module.exports = function getWelcomeEmail(emailAddress) {
                                                 <table border="0" valign="top" cellspacing="0" cellpadding="0" align="left" class="rnb-col-1" width="550">
                                                     <tbody><tr>
                                                         <td style="font-size:14px; font-family:Arial,Helvetica,sans-serif, sans-serif; color:#3c4858; line-height: 21px;">
-                                                            <div><div>We're so happy you've joined. We founded Hodlio with the goal of being the best cryptocurrency portfolio management platform on the internet. We think you'll agree that we have succeeded.</div>
-
-<div> </div>
-
-<div>We hope you find Hodlio as useful and easy-to-use as we intended when making it.<br>
- <br>
-You can now log in using the button below or at <a href="https://www.hodlio.com/login" style="text-decoration: underline; color: rgb(52, 153, 219);">https://www.hodlio.com/login</a> with your email address {EMAIL} and the password you created during the signup process.</div>
-</div>
+                                                            <div>
+                                                            <div>Hi,<br><br>We founded Hodlio with the goal of being the best cryptocurrency portfolio management platform on the internet. <br><br>If you'd like to offer your suggestions or would just like to say hello then please drop us an email at <a style="text-decoration: underline; color: rgb(52, 153, 219);" href="mailto:team@hodlio.com">team@hodlio.com</a>.<br><br></div>
+                                                            <div>The best way to get started with Hodlio is to add some stuff to your portfolio. You'll now be able to log in using the button below or at <a href="https://www.hodlio.com/login" style="text-decoration: underline; color: rgb(52, 153, 219);">https://www.hodlio.com/login</a> with your email address {EMAIL} and the password you created during the signup process.</div></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -494,7 +489,7 @@ You can now log in using the button below or at <a href="https://www.hodlio.com/
                                                             <table cellpadding="0" border="0" align="left" cellspacing="0" class="rnb-btn-col-content">
                                                                 <tbody><tr>
                                                                     <td valign="middle" align="left" style="font-size:14px; font-family:Arial,Helvetica,sans-serif; color:#888888;" class="rnb-text-center">
-                                                                        <div>Company Name<br>9, Rue Bleue<br>75009 PARIS<br><a href="#" style="text-decoration: underline; color: rgb(102, 102, 102);">contact@company.com</a></div>
+                                                                        <div>Hodlio<br>35, Wigan Lower Road<br>Wigan, UK<br><a href="mailto:team@hodlio.com" style="text-decoration: underline; color: rgb(102, 102, 102);">team@hodlio.com</a></div>
                                                                     </td></tr>
                                                             </tbody></table>
                                                         </td>
@@ -508,50 +503,37 @@ You can now log in using the button below or at <a href="https://www.hodlio.com/
                                                         <td valign="top">
                                                             <table cellpadding="0" border="0" cellspacing="0" class="rnb-social-align" style="float: right;" align="right">
                                                                 <tbody><tr>
-                                                                    <td valign="middle" class="rnb-text-center" ng-init="width=setSocialIconsBlockWidth(item)" width="246" align="left">
+                                                                    <td valign="middle" class="rnb-text-center" ng-init="width=setSocialIconsBlockWidth(item)" width="246" align="right">
+                                                                        <div class="rnb-social-center"></div>
+                                                                        <div class="rnb-social-center"></div>
                                                                         <div class="rnb-social-center">
-                                                                        <table align="left" style="float:left; display: inline-block; mso-table-lspace:0pt; mso-table-rspace:0pt;" border="0" cellpadding="0" cellspacing="0">
-                                                                        <tbody><tr>
-                                                                                <td style="padding:0px 5px 5px 0px; mso-padding-alt: 0px 2px 5px 0px;" align="left">
-                                                                        <span style="color:#ffffff; font-weight:normal;">
-                                                                            <img alt="Facebook" border="0" hspace="0" vspace="0" style="vertical-align:top;" target="_blank" src="http://img.mailinblue.com/new_images/rnb/theme1/rnb_ico_fb.png"></span>
-                                                                        </td></tr></tbody></table>
-                                                                        </div><div class="rnb-social-center">
-                                                                        <table align="left" style="float:left; display: inline-block; mso-table-lspace:0pt; mso-table-rspace:0pt;" border="0" cellpadding="0" cellspacing="0">
-                                                                        <tbody><tr>
-                                                                                <td style="padding:0px 5px 5px 0px; mso-padding-alt: 0px 2px 5px 0px;" align="left">
-                                                                        <span style="color:#ffffff; font-weight:normal;">
-                                                                            <img alt="Twitter" border="0" hspace="0" vspace="0" style="vertical-align:top;" target="_blank" src="http://img.mailinblue.com/new_images/rnb/theme1/rnb_ico_tw.png"></span>
-                                                                        </td></tr></tbody></table>
-                                                                        </div><div class="rnb-social-center">
-                                                                        <table align="left" style="float:left; display: inline-block; mso-table-lspace:0pt; mso-table-rspace:0pt;" border="0" cellpadding="0" cellspacing="0">
-                                                                        <tbody><tr>
-                                                                                <td style="padding:0px 5px 5px 0px; mso-padding-alt: 0px 2px 5px 0px;" align="left">
-                                                                        <span style="color:#ffffff; font-weight:normal;">
-                                                                            <img alt="Google+" border="0" hspace="0" vspace="0" style="vertical-align:top;" target="_blank" src="http://img.mailinblue.com/new_images/rnb/theme1/rnb_ico_gp.png"></span>
-                                                                        </td></tr></tbody></table>
-                                                                        </div><div class="rnb-social-center">
-                                                                        <table align="left" style="float:left; display: inline-block; mso-table-lspace:0pt; mso-table-rspace:0pt;" border="0" cellpadding="0" cellspacing="0">
-                                                                        <tbody><tr>
-                                                                                <td style="padding:0px 5px 5px 0px; mso-padding-alt: 0px 2px 5px 0px;" align="left">
-                                                                        <span style="color:#ffffff; font-weight:normal;">
-                                                                            <img alt="LinkedIn" border="0" hspace="0" vspace="0" style="vertical-align:top;" target="_blank" src="http://img.mailinblue.com/new_images/rnb/theme1/rnb_ico_in.png"></span>
-                                                                        </td></tr></tbody></table>
-                                                                        </div><div class="rnb-social-center">
-                                                                        <table align="left" style="float:left; display: inline-block; mso-table-lspace:0pt; mso-table-rspace:0pt;" border="0" cellpadding="0" cellspacing="0">
-                                                                        <tbody><tr>
-                                                                                <td style="padding:0px 5px 5px 0px; mso-padding-alt: 0px 2px 5px 0px;" align="left">
-                                                                        <span style="color:#ffffff; font-weight:normal;">
-                                                                            <img alt="Instagram" border="0" hspace="0" vspace="0" style="vertical-align:top;" target="_blank" src="http://img.mailinblue.com/new_images/rnb/theme1/rnb_ico_ig.png"></span>
-                                                                        </td></tr></tbody></table>
-                                                                        </div><div class="rnb-social-center">
-                                                                        <table align="left" style="float:left; display: inline-block; mso-table-lspace:0pt; mso-table-rspace:0pt;" border="0" cellpadding="0" cellspacing="0">
-                                                                        <tbody><tr>
-                                                                                <td style="padding:0px 5px 5px 0px; mso-padding-alt: 0px 2px 5px 0px;" align="left">
-                                                                        <span style="color:#ffffff; font-weight:normal;">
-                                                                            <img alt="YouTube" border="0" hspace="0" vspace="0" style="vertical-align:top;" target="_blank" src="http://img.mailinblue.com/new_images/rnb/theme1/rnb_ico_yt.png"></span>
-                                                                        </td></tr></tbody></table>
-                                                                        </div></td>
+                                                                            <table align="right" style="float:right; display: inline-block; mso-table-lspace:0pt; mso-table-rspace:0pt;" border="0" cellpadding="0" cellspacing="0">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td style="padding:0px 5px 5px 0px; mso-padding-alt: 0px 2px 5px 0px;" align="right">
+                                                                                            <span style="color:#ffffff; font-weight:normal;">
+                                                                                                <img alt="Facebook" border="0" hspace="0" vspace="0" style="vertical-align:top;" target="_blank" src="http://img.mailinblue.com/new_images/rnb/theme1/rnb_ico_fb.png">
+                                                                                            </span>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+
+                                                                        <div class="rnb-social-center">
+                                                                            <table align="right" style="float:right; display: inline-block; mso-table-lspace:0pt; mso-table-rspace:0pt;" border="0" cellpadding="0" cellspacing="0">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td style="padding:0px 5px 5px 0px; mso-padding-alt: 0px 2px 5px 0px;" align="right">
+                                                                                            <span style="color:#ffffff; font-weight:normal;">
+                                                                                                <img alt="Twitter" border="0" hspace="0" vspace="0" style="vertical-align:top;" target="_blank" src="http://img.mailinblue.com/new_images/rnb/theme1/rnb_ico_tw.png">
+                                                                                            </span>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </td>
                                                                 </tr>
                                                             </tbody></table>
                                                         </td>
@@ -582,8 +564,6 @@ You can now log in using the button below or at <a href="https://www.hodlio.com/
                             <tr>
                                 <td>
                                     <div style="font-size:14px; color:#888888; font-weight:normal; text-align:center; font-family:Arial,Helvetica,sans-serif;">This email was sent to {EMAIL}<div>You received this email because you are registered with Hodlio</div><div> </div></div>
-                                    <div style="font-size:14px; font-weight:normal; text-align:center; font-family:Arial,Helvetica,sans-serif;">
-                                        <a style="text-decoration:underline; color:#666666;font-size:14px;font-weight:normal;font-family:Arial,Helvetica,sans-serif;" target="_blank" href="[UNSUBSCRIBE]">Unsubscribe here</a></div>
                                 </td></tr>
                             <tr>
                                 <td height="10" style="font-size:1px; line-height:1px;"> </td>

@@ -11,17 +11,26 @@
     font-size: 20px;
     font-weight: 700;
     line-height: 30px;
-    border: none;
+    border: 1px solid #fff;
     outline: none;
     text-decoration: none;
-    transition: transform 0.05s ease;
+    transition: border 0.2s ease, transform 0.05s ease;
     transform: translate(0px, 0px);
+    user-select: none;
 }
 
 .button:hover {
-    transform: translate(0, -1px);
+    border: 1px solid #e36a62;
 }
 
 .button:active {
     transform: translate(2px, 2px);
+}
+
+.button--loading {
+
+}
+
+.button--error {
+
 }
