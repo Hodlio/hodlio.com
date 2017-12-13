@@ -12,7 +12,7 @@ module.exports = {
         const sendSmtpEmail = new SendinBlueApi.SendSmtpEmail();
 
         Object.assign(sendSmtpEmail, {
-            sender: { "name": "Hodlio Staff", "email":"matt@hodlio.com" },
+            sender: { "name": "Hodlio Team", "email":"team@hodlio.com" },
             to: [{ email: email }],
             htmlContent: welcomeTemplate(email),
             subject: 'Welcome to Hodlio!'

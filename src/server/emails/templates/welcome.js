@@ -408,7 +408,7 @@ module.exports = function getWelcomeEmail(emailAddress) {
                                                         <td style="font-size:14px; font-family:Arial,Helvetica,sans-serif, sans-serif; color:#3c4858; line-height: 21px;">
                                                             <div>
                                                             <div>Hi,<br><br>We founded Hodlio with the goal of being the best cryptocurrency portfolio management platform on the internet. <br><br>If you'd like to offer your suggestions or would just like to say hello then please drop us an email at <a style="text-decoration: underline; color: rgb(52, 153, 219);" href="mailto:team@hodlio.com">team@hodlio.com</a>.<br><br></div>
-                                                            <div>The best way to get started with Hodlio is to add some stuff to your portfolio. You'll now be able to log in using the button below or at <a href="https://www.hodlio.com/login" style="text-decoration: underline; color: rgb(52, 153, 219);">https://www.hodlio.com/login</a> with your email address {EMAIL} and the password you created during the signup process.</div></div>
+                                                            <div>The best way to get started with Hodlio is to add some stuff to your portfolio. You'll now be able to log in using the button below or at <a href="https://www.hodlio.com/login" style="text-decoration: underline; color: rgb(52, 153, 219);">https://www.hodlio.com/login</a> with your email address <a href="mailto:{EMAIL}" style="text-decoration: underline; color: rgb(102, 102, 102);">{EMAIL}</a> and the password you created during the signup process.</div></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -511,7 +511,7 @@ module.exports = function getWelcomeEmail(emailAddress) {
                                                                                 <tbody>
                                                                                     <tr>
                                                                                         <td style="padding:0px 5px 5px 0px; mso-padding-alt: 0px 2px 5px 0px;" align="right">
-                                                                                            <span style="color:#ffffff; font-weight:normal;">
+                                                                                            <a style="color:#ffffff; font-weight:normal;" href="https://www.facebook.com/Hodlio-665812843807358">
                                                                                                 <img alt="Facebook" border="0" hspace="0" vspace="0" style="vertical-align:top;" target="_blank" src="http://img.mailinblue.com/new_images/rnb/theme1/rnb_ico_fb.png">
                                                                                             </span>
                                                                                         </td>

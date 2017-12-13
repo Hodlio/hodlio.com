@@ -138,19 +138,24 @@ class GdaxClient {
 
         this.logger.info('Connected to price feed.');
 
-        websocket.on('message', data => {
-            if(data.type === 'match') {
-                this.updatePairs(data);
-                this.onUpdateFunc && this.onUpdateFunc(this.pairs);
-            }
-        });
-        websocket.on('error', err => {
-            this.logger.error('Error with price feed connection.', err);
-        });
-        websocket.on('close', () => {
-            this.logger.info('Price feed connection closed.')
-        });
+        websocket.on('message', this.handlePriceFeedConnectionMessage);
+        websocket.on('error', this.handlePriceFeedConnectionError);
+        websocket.on('close', this.handlePriceFeedConnectionClose);
     }
+
+    handlePriceFeedConnectionMessage = (data) => {
+        if(data.type === 'match') {
+            this.updatePairs(data);
+            this.onUpdateFunc && this.onUpdateFunc(this.pairs);
+        }
+    };
+
+    handlePriceFeedConnectionError = (err) => this.logger.error('Error with price feed connection.', err);
+
+    handlePriceFeedConnectionClose = () => {
+        this.logger.info('Price feed connection closed.');
+        this.connectToPriceFeed();
+    };
 
     updatePairs(data) {
         this.pairs[data.product_id].price = data.price;
