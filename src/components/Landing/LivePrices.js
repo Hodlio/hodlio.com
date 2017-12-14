@@ -3,7 +3,6 @@ import Header from '../Common/Heading';
 import './livePrices.css';
 import PriceCard from './PriceCard';
 import socket from '../../socketio';
-import _ from 'lodash';
 import Select from '../Common/Select';
 
 class LivePrices extends React.Component {
@@ -12,7 +11,7 @@ class LivePrices extends React.Component {
         super();
 
         this.state = {
-            prices: null,
+            prices: [],
             chosenCurrency: '$'
         };
         this.chosenCurrencyOptions = [
@@ -68,7 +67,7 @@ class LivePrices extends React.Component {
                     <Select value={this.state.chosenCurrency} onChange={this.handleChangeCurrency} options={this.chosenCurrencyOptions} />
                 </div>
                 <div className="livePrices__cards">
-                    {_.map(this.state.prices, (cardData) => {
+                    {this.state.prices.map((cardData) => {
 
                         if (cardData.currency === this.state.chosenCurrency) {
                             return (

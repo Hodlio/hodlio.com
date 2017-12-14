@@ -1,4 +1,4 @@
-const _ = require('lodash');
+const _throttle = require('lodash/throttle');
 const express = require('express');
 const app = require('express')();
 const http = require('http').Server(app);
@@ -43,7 +43,7 @@ io.on('connection', function(socket){
     logger.info('Client connected.');
 
     if(!Gdax.onUpdateFunc) {
-        Gdax.onUpdate(_.throttle(handleGdaxApiUpdate, 2000));
+        Gdax.onUpdate(_throttle(handleGdaxApiUpdate, 2000));
     }
 
     socket.on('disconnect', function(socket) {
