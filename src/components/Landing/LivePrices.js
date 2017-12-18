@@ -4,6 +4,7 @@ import './livePrices.css';
 import PriceCard from './PriceCard';
 import socket from '../../socketio';
 import Select from '../Common/Select';
+import LoadingSpinner from '../Common/LoadingSpinner';
 
 class LivePrices extends React.Component {
 
@@ -67,6 +68,11 @@ class LivePrices extends React.Component {
                     <Select value={this.state.chosenCurrency} onChange={this.handleChangeCurrency} options={this.chosenCurrencyOptions} />
                 </div>
                 <div className="livePrices__cards">
+
+                    {!this.state.prices.length > 0 && (
+                        <LoadingSpinner />
+                    )}
+
                     {this.state.prices.map((cardData) => {
 
                         if (cardData.currency === this.state.chosenCurrency) {

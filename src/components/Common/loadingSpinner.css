@@ -1,0 +1,11 @@
+.loadingSpinner {
+    width: 57px;
+    height: 57px;
+    text-align: center;
+}
+
+.loadingSpinner__text {
+    text-align: center;
+    font-size: 1.4rem;
+    margin: 5px 0 0 0;
+}
