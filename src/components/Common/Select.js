@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const Select = ({ value, onChange, options }) => (
    <select value={value} onChange={onChange} className="select">
-       {options.map((option) => (<option value={option.value}>{option.display}</option>))}
+       {options.map((option, index) => (<option key={`option${index}`} value={option.value}>{option.display}</option>))}
    </select>
 );
 

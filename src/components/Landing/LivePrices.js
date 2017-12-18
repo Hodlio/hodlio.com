@@ -5,6 +5,7 @@ import PriceCard from './PriceCard';
 import socket from '../../socketio';
 import Select from '../Common/Select';
 import LoadingSpinner from '../Common/LoadingSpinner';
+import { get, set } from '../../dataLayer/localStorage';
 
 class LivePrices extends React.Component {
 
@@ -12,7 +13,7 @@ class LivePrices extends React.Component {
         super();
 
         this.state = {
-            prices: [],
+            prices: {},
             chosenCurrency: '$'
         };
         this.chosenCurrencyOptions = [
@@ -39,6 +40,13 @@ class LivePrices extends React.Component {
         if(socket) {
             socket.on('price_updated', this.handleUpdate);
         }
+
+        const chosenCurrency = get('hodlio-chosenCurrency');
+        if(chosenCurrency) {
+            this.setState({
+                chosenCurrency
+            });
+        }
     }
 
     componentWillUnmount() {
@@ -53,11 +61,17 @@ class LivePrices extends React.Component {
         });
     };
 
-    handleChangeCurrency = (currency) => {
-        this.setState({ chosenCurrency: currency.currentTarget.value });
+    handleChangeCurrency = (e) => {
+        const chosenCurrency = e.currentTarget.value;
+        this.setState({
+            chosenCurrency
+        }, () => {
+            set('hodlio-chosenCurrency', chosenCurrency);
+        });
     };
 
     render() {
+
         return (
             <div className="livePrices">
                 <Header centered>Live Prices</Header>
@@ -69,28 +83,26 @@ class LivePrices extends React.Component {
                 </div>
                 <div className="livePrices__cards">
 
-                    {!this.state.prices.length > 0 && (
+                    {!Object.keys(this.state.prices).length > 0 && (
                         <LoadingSpinner />
                     )}
 
-                    {this.state.prices.map((cardData) => {
-
-                        if (cardData.currency === this.state.chosenCurrency) {
-                            return (
-                                <div className="livePrices__card">
-                                    <PriceCard
-                                        title={cardData.name}
-                                        shorthand={cardData.shorthand}
-                                        currency={cardData.currency}
-                                        price={cardData.price}
-                                        twentyFourHrChange={cardData.twentyFourHrChange}
-                                        volume={cardData.volume}
-                                    />
-                                </div>
-                            );
-                        }
-
-                        return <div/>
+                    {Object.keys(this.state.prices).filter((pair) => {
+                        return this.state.prices[pair].currency === this.state.chosenCurrency;
+                    }).map((pair) => {
+                        const cardData = this.state.prices[pair];
+                        return (
+                            <div className="livePrices__card" key={pair}>
+                                <PriceCard
+                                    title={cardData.name}
+                                    shorthand={cardData.shorthand}
+                                    currency={cardData.currency}
+                                    price={cardData.price}
+                                    twentyFourHrChange={cardData.twentyFourHrChange}
+                                    volume={cardData.volume}
+                                />
+                            </div>
+                        );
 
                     })}
                 </div>

@@ -17,6 +17,7 @@
     transition: border 0.2s ease, transform 0.05s ease;
     transform: translate(0px, 0px);
     user-select: none;
+    cursor: pointer;
 }
 
 .button:hover {

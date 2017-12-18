@@ -2,6 +2,7 @@
     width: 57px;
     height: 57px;
     text-align: center;
+    user-select: none;
 }
 
 .loadingSpinner__text {
