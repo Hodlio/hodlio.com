@@ -9,6 +9,7 @@ const PriceCard = ({ title, currency, price, shorthand, twentyFourHrChange, volu
      if(currency === 'Ƀ') {
         decimalPlaces = 6;
      }
+     console.log(volume);
      return (
         <section className={`priceCard priceCard--${shorthand}`}>
             <Header white level={2}>{title} <span className="priceCard__symbol">({shorthand})</span></Header>
