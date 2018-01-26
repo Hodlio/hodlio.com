@@ -133,8 +133,6 @@ class GdaxClient {
                 .then((data) => {
                     this.pairs[pair].dayOpenPrice = data.open;
                     this.pairs[pair].volume = this.pairs[pair].volumeCurrency.concat(parseFloat(data.volume).toFixed(2));
-                    this.logger.info('updated 24hr price');
-                    this.logger.info(pair);
                 })
                 .catch((e) => {
                     this.logger.warn(`Error getting 24 hour stats for ${pair}.`, e);
