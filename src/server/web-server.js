@@ -12,6 +12,7 @@ const Gdax = new GdaxClient(logger);
 const morgan = require('morgan');
 
 const PORT = 8083;
+var lastUpdated = new Date();
 
 Gdax.connectToPriceFeed();
 
@@ -37,6 +38,13 @@ function handleGdaxApiUpdate(currencyPairs) {
     });
 
     logger.info('Update received. Emitting new price data.');
+    let currentTime = new Date();
+
+    if((currentTime - lastUpdated) > 600000) {
+        Gdax.getTwentyFourHourPrices();
+        lastUpdated = currentTime;
+        logger.info('24hr Prices updated');
+    }
 }
 
 io.on('connection', function(socket){

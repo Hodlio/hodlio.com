@@ -13,7 +13,8 @@ class GdaxClient {
                 currency: '$',
                 shorthand: 'BTC',
                 name: 'Bitcoin',
-                volume: 'Ƀ'
+                volumeCurrency: 'Ƀ',
+                volume: ''
             },
             'BTC-EUR': {
                 price: '0',
@@ -22,7 +23,8 @@ class GdaxClient {
                 currency: '€',
                 shorthand: 'BTC',
                 name: 'Bitcoin',
-                volume: 'Ƀ'
+                volume: 'Ƀ',
+                volume: ''
             },
             'BTC-GBP': {
                 price: '0',
@@ -31,7 +33,8 @@ class GdaxClient {
                 currency: '£',
                 shorthand: 'BTC',
                 name: 'Bitcoin',
-                volume: 'Ƀ'
+                volumeCurrency: 'Ƀ',
+                volume: ''
             },
             'ETH-USD': {
                 price: '0',
@@ -40,7 +43,8 @@ class GdaxClient {
                 currency: '$',
                 shorthand: 'ETH',
                 name: 'Ethereum',
-                volume: 'Ξ'
+                volumeCurrency: 'Ξ',
+                volume: ''
             },
             'ETH-EUR': {
                 price: '0',
@@ -49,7 +53,8 @@ class GdaxClient {
                 currency: '€',
                 shorthand: 'ETH',
                 name: 'Ethereum',
-                volume: 'Ξ'
+                volumeCurrency: 'Ξ',
+                volume: ''
             },
             'ETH-BTC': {
                 price: '0',
@@ -58,7 +63,8 @@ class GdaxClient {
                 currency: 'Ƀ',
                 shorthand: 'ETH',
                 name: 'Ethereum',
-                volume: 'Ξ'
+                volumeCurrency: 'Ξ',
+                volume: ''
             },
             'LTC-USD': {
                 price: '0',
@@ -67,7 +73,8 @@ class GdaxClient {
                 currency: '$',
                 shorthand: 'LTC',
                 name: 'Litecoin',
-                volume: 'Ł'
+                volumeCurrency: 'Ł',
+                volume: ''
             },
             'LTC-EUR': {
                 price: '0',
@@ -76,7 +83,8 @@ class GdaxClient {
                 currency: '€',
                 shorthand: 'LTC',
                 name: 'Litecoin',
-                volume: 'Ł'
+                volumeCurrency: 'Ł',
+                volume: ''
             },
             'LTC-BTC': {
                 price: '0',
@@ -85,7 +93,8 @@ class GdaxClient {
                 currency: 'Ƀ',
                 shorthand: 'LTC',
                 name: 'Litecoin',
-                volume: 'Ł'
+                volumeCurrency: 'Ł',
+                volume: ''
             }
 
         };
@@ -120,10 +129,10 @@ class GdaxClient {
             this
                 .pairs[pair]
                 .client
-                .getProduct24HrStats()
+                .getProduct24HrStats(pair)
                 .then((data) => {
                     this.pairs[pair].dayOpenPrice = data.open;
-                    this.pairs[pair].volume = this.pairs[pair].volume.concat(parseFloat(data.volume).toFixed(2));
+                    this.pairs[pair].volume = this.pairs[pair].volumeCurrency.concat(parseFloat(data.volume).toFixed(2));
                 })
                 .catch((e) => {
                     this.logger.warn(`Error getting 24 hour stats for ${pair}.`, e);
