@@ -9,7 +9,6 @@ class GdaxClient {
             'BTC-USD': {
                 price: '0',
                 timeUpdated: '',
-                client: new Gdax.PublicClient('BTC-USD'),
                 currency: '$',
                 shorthand: 'BTC',
                 name: 'Bitcoin',
@@ -19,17 +18,15 @@ class GdaxClient {
             'BTC-EUR': {
                 price: '0',
                 timeUpdated: '',
-                client: new Gdax.PublicClient('BTC-EUR'),
                 currency: '€',
                 shorthand: 'BTC',
                 name: 'Bitcoin',
-                volume: 'Ƀ',
+                volumeCurrency: 'Ƀ',
                 volume: ''
             },
             'BTC-GBP': {
                 price: '0',
                 timeUpdated: '',
-                client: new Gdax.PublicClient('BTC-GBP'),
                 currency: '£',
                 shorthand: 'BTC',
                 name: 'Bitcoin',
@@ -39,7 +36,6 @@ class GdaxClient {
             'ETH-USD': {
                 price: '0',
                 timeUpdated: '',
-                client: new Gdax.PublicClient('ETH-USD'),
                 currency: '$',
                 shorthand: 'ETH',
                 name: 'Ethereum',
@@ -49,7 +45,6 @@ class GdaxClient {
             'ETH-EUR': {
                 price: '0',
                 timeUpdated: '',
-                client: new Gdax.PublicClient('ETH-EUR'),
                 currency: '€',
                 shorthand: 'ETH',
                 name: 'Ethereum',
@@ -59,7 +54,6 @@ class GdaxClient {
             'ETH-BTC': {
                 price: '0',
                 timeUpdated: '',
-                client: new Gdax.PublicClient('ETH-BTC'),
                 currency: 'Ƀ',
                 shorthand: 'ETH',
                 name: 'Ethereum',
@@ -69,7 +63,6 @@ class GdaxClient {
             'LTC-USD': {
                 price: '0',
                 timeUpdated: '',
-                client: new Gdax.PublicClient('LTC-USD'),
                 currency: '$',
                 shorthand: 'LTC',
                 name: 'Litecoin',
@@ -79,7 +72,6 @@ class GdaxClient {
             'LTC-EUR': {
                 price: '0',
                 timeUpdated: '',
-                client: new Gdax.PublicClient('LTC-EUR'),
                 currency: '€',
                 shorthand: 'LTC',
                 name: 'Litecoin',
@@ -89,7 +81,6 @@ class GdaxClient {
             'LTC-BTC': {
                 price: '0',
                 timeUpdated: '',
-                client: new Gdax.PublicClient('LTC-BTC'),
                 currency: 'Ƀ',
                 shorthand: 'LTC',
                 name: 'Litecoin',
@@ -115,7 +106,7 @@ class GdaxClient {
     }
 
     getCurrentPrice(tradingPair) {
-        return this.pairs[tradingPair].client.getProductTicker()
+        return this.publicClient.getProductTicker(tradingPair)
             .then(data => {
                 return data;
             }).catch(e => {
@@ -126,9 +117,7 @@ class GdaxClient {
 
     getTwentyFourHourPrices() {
         for(const pair of Object.keys(this.pairs)) {
-            this
-                .pairs[pair]
-                .client
+            this.publicClient
                 .getProduct24HrStats(pair)
                 .then((data) => {
                     this.pairs[pair].dayOpenPrice = data.open;

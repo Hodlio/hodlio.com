@@ -3,6 +3,7 @@
     min-height: 100vh;
     overflow: hidden;
     position: relative;
+    padding: 0 0 40px 0;
 }
 
 .authStyles__pageHeading {

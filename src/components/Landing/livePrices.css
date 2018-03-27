@@ -1,10 +1,3 @@
-.livePrices {
-    padding: 20px;
-    background: #fff;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
 .livePrices__cards {
     display: flex;
     align-items: flex-start;

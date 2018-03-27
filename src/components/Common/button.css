@@ -1,12 +1,9 @@
 .button {
     display: inline-block;
     font-family: 'Nunito Sans', sans-serif;
-    background-color: white;
     border-radius: 6px;
     padding: 10px 24px 10px;
-    color: #e36a62;
-    margin: 0 auto;
-    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.08);
     text-align: center;
     font-size: 20px;
     font-weight: 700;
@@ -34,4 +31,20 @@
 
 .button--error {
 
+}
+
+.button--primary {
+    background-color: white;
+    color: #e36a62;
+}
+
+.button--secondary {
+    background-color: #F76E64;
+    background-image: linear-gradient(231deg, #E93876, #F76E64);
+    color: #fff;
+}
+
+.button--small {
+    padding: 0 12px;
+    font-size: 14px;
 }

@@ -1,0 +1,17 @@
+.noCoins__image {
+    min-width: 100px;
+    width: 20%;
+    max-width: 130px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.noCoins__footer {
+    text-align: center;
+    padding: 20px 0 0 0;
+}
+
+.noCoins__action {
+    display: inline-block;
+    vertical-align: middle;
+}

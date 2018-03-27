@@ -1,11 +1,12 @@
 import React from 'react';
-import Header from '../Common/Heading';
+import Heading from '../Common/Heading';
 import './livePrices.css';
 import PriceCard from './PriceCard';
 import socket from '../../socketio';
 import Select from '../Common/Select';
 import LoadingSpinner from '../Common/LoadingSpinner';
 import { get, set } from '../../dataLayer/localStorage';
+import Panel from '../Common/Panel';
 
 class LivePrices extends React.Component {
 
@@ -73,8 +74,8 @@ class LivePrices extends React.Component {
     render() {
 
         return (
-            <div className="livePrices">
-                <Header centered>Live Prices</Header>
+            <Panel>
+                <Heading centered>Live Prices</Heading>
                 <div className="livePrices__select">
                     <div className="livePrices__selectLabel">
                         Select a Currency
@@ -106,7 +107,7 @@ class LivePrices extends React.Component {
 
                     })}
                 </div>
-            </div>
+            </Panel>
         );
     }
 }

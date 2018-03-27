@@ -18,5 +18,14 @@ module.exports = {
             }),
             body: JSON.stringify({ email, password })
         });
+    },
+    logout: function logout() {
+        return fetch('/api/logout', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: new Headers({
+                'Content-Type': 'application/json'
+            })
+        });
     }
 };
